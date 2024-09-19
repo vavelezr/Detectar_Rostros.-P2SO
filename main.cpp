@@ -42,5 +42,20 @@ int main(int argc, char** argv) {
         cerr << "Error al guardar la imagen." << endl;
     }
 
+        // Guardar rostros individuales en la carpeta "individuales"
+    string carpeta_individuales = "individuales";
+
+    for (size_t i = 0; i < rostros.size(); i++) {
+        Mat rostro = imagen(rostros[i]);
+
+        string nombre_rostro = carpeta_individuales + "/rostro" + to_string(i) + ".jpg";
+
+        if (imwrite(nombre_rostro, rostro)) {
+            cout << "Rostro " << i << " guardado." << endl;
+        } else {
+            cerr << "Error al guardar el rostro " << i << endl;
+        }
+    }
+    
     return 0;
 }
