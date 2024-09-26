@@ -10,3 +10,6 @@ $(TARGET): $(SRCS)
 
 clean:
 	rm -f $(TARGET)
+
+run: $(TARGET)
+	./$(TARGET) $(IMAGE)
